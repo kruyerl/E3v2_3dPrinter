@@ -1,21 +1,30 @@
-; ===== Start heating =====
-M140 S{material_bed_temperature_layer_0}       ; Bed preheat
-M104 S180
+; ===== Home =====
+G28
 
-; ===== Home all axes =====
-G28  ;Home
-M220 S100 ;Reset Feed rate 
-M221 S100 ;Reset Flow rate 
-G92 E0 ;Reset Extruder
+; ===== Preheat =====
+M140 S{material_bed_temperature_layer_0}
+M104 S185
 
-; ===== Wait for heating =====
-M109 S180 ; Wait for Extruder temperature
+; ===== Reset =====
+M220 S100
+M221 S100
+G92 E0
 
-; ===== Retract before AML =====
-M104 S{material_print_temperature_layer_0} ; Set Extruder temperature
+; ===== Heat for feed =====
+M109 S185
+
+; ===== Automated Bowden feed =====
+G91
+G1 E300 F1200
+G1 E60 F600
+G1 E30 F300
+G1 E5 F120
+G90
+G92 E0
+
+; ===== Final print temp =====
+M104 S{material_print_temperature_layer_0}
 
 ; ===== Enable mesh + AML =====
 M420 S1
 C29 A
-
-; ===== Print begins =====

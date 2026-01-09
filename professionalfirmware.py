@@ -291,7 +291,8 @@ class professionalfirmware(Script):
         G92 E0  ; Reset extruder
         G1 X248 F15000
         M117 Priming...
-        G1 E240 F300 ; Extrude poop
+        ; Purge hotend of previous filament
+        G1 E150 F300 ; Input remaining 20% (12mm) slower
         G4 P2000
         G1 X232 F15000
         G1 X248 F15000
