@@ -8,6 +8,8 @@ G1 X248 F6000
 
 ; ===== Heat & unload =====
 M109 S200
+
+; ==TODO: Filament is stringy when unloading. Lower temp==
 M702 ; MRiscoC filament unload
 
 ; ===== Present print =====
