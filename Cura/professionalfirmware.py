@@ -289,24 +289,26 @@ class professionalfirmware(Script):
         aml_lev = '\nG29 P1  ; new mesh\nM420 S1 ; activate leveling\nC108    ; close mesh viewer'
         aml_prime = '''\nG1 Z2 F240 ; Lift Z a little to avoid scratching the bed
         G92 E0  ; Reset extruder
-        G1 X248 F15000
+        G1 X237 F15000
         M117 Priming...
         ; Purge hotend of previous filament
-        G1 E150 F300 ; Input remaining 20% (12mm) slower
+        G1 E60 F300 ; Input remaining 20% (12mm) slower
         G4 P2000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
-        G1 X248 F15000
-        G1 X232 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
+        G1 X237 F15000
+        G1 X228 F15000
         G92 E0  ; Reset extruder
         G1 Z2.0 F3000 ; Lift Z again'''.format(aml_miny, aml_layer) if aml_enableprime else ""
 
